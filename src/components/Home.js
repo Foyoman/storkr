@@ -2,6 +2,10 @@ import React from 'react'
 import '../css/style.scss'
 
 export default function Home() {
+	const _handleSubmit = (e) => {
+		e.preventDefault();
+	}
+
 	return (
 		<div>
 			<header>
@@ -47,14 +51,14 @@ export default function Home() {
 							</div>
 
 						</div>
-						{/* <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 							<span class="visually-hidden">Previous</span>
 						</button>
 						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
 							<span class="carousel-control-next-icon" aria-hidden="true"></span>
 							<span class="visually-hidden">Next</span>
-						</button> */}
+						</button>
 					</div>
 				</div>
 
@@ -86,7 +90,7 @@ export default function Home() {
 							</label>
 						</div>
 
-						<button class='btn subscribe'>Subscribe Now</button>
+						<button onSubmit={ _handleSubmit } class='btn subscribe'>Subscribe Now</button>
 
 						<p class='disclaimer'>By entering your details you agree to our Terms of Use and Privacy Policy and consent to receive emails from Storkr about news, offers and partner promotions.</p>
 					</form>
