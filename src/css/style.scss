@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+$brand-color: #72ADBF;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: flex;
+	margin: 0;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 160px;
+	background-color: $brand-color;
+}
+
+h1, h2, h3 {
+	font-family: 'Nothing You Could Do', cursive;
+	font-weight: 300;
+	margin: 0;
+}
+
+h1, .banner h2, aside h2 {
+	color: white;
+}
+
+h1 {
+	font-size: 64px;
+}
+
+.banner {
+	background-image: url('https://www.johnlund.com/Images/Drone-Baby-Delivery-Service.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	padding: 0.4em 1em;
+}
+
+main {
+	padding: 1em 0;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+main h2, aside h2 {
+	text-align: center;
+	font-size: 32px;
+}
+
+.content {
+	font-size: 16px;
+	padding: 0.6em 1em;
+}
+
+aside {
+	background-color: $brand-color;
+	height: 400px;
+	padding: 1em;
+	color: white;
+}
+
+aside {
+	font-size: 18px;
+}
+
+.form {
+	text-align: right;
+	// display: flex;
+	width: 385px;
+	margin: 0 auto;
+}
+
+form label, form input {
+	font-weight: 300;
+}
+
+input, input:focus {
+	background-color: $brand-color;
+	border: none;
+	border-bottom: 1px solid white;
+	outline: none;
+}
+
+.subscribe {
+	margin: 1em auto;
+	display: flex;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 0.8em;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.disclaimer {
+	font-size: 10px;
+	padding: 0 6em;
+}
+
+.products {
+	padding: 1em;
+	margin-bottom: 1em;
+	background-color: $brand-color;
+	color: white;
+}
+
+.testimonial {
+	display: flex;
+	flex-direction: row;
+	height: 140px;
+	background-color: $brand-color;
+	box-shadow: 0px 7px 4px -2px rgba(0, 0, 0, 0.4);
+	margin: 0 auto;
+	align-items: center;
+	justify-content: center;
+	padding: 0.4em;
+	color: white;
+	gap: 5px;
+}
+
+.carousel-inner {
+	padding: 0.8em 1.5em 1.5em 1.5em;
+}
+
+.icon {
+	aspect-ratio: 1/1;
+	height: 80px;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#testimonial-one {
+	background-image: url('https://thumbs.dreamstime.com/b/happy-couple-their-newborn-baby-happy-couple-their-newborn-baby-home-142237275.jpg');
+}
+
+#testimonial-two {
+	background-image: url('https://cdn.cdnparenting.com/articles/2018/12/131909891-H.jpg');
+}
+
+.testimonial h3 {
+	margin: 1em 0 0 0;
+}
+
+.newsletter {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.letterhead {
+	// background-color: $brand-color;
+	border-radius: 25px 25px 0 0;
+	height: 80px;
+	background-color: $brand-color;
+	color: white;
+	margin: 0 auto;
+	font-size: 38px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.letterbody {
+	padding: 1em;
+	height: 320px;
+	border: 1px solid $brand-color;
+	border-radius: 0 0 25px 25px;
+}
+
+.popout {
+	width: 100%;
+	margin: 0 auto;
+}
