@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import '../css/style.scss'
 import { Button } from 'react-bootstrap'
+import ProductCarousel from 'carousel-react-rcdev'
+import Carousel from 'react-bootstrap/Carousel'
 
 export default function Home() {
+	
 	const [showPopup, setShowPopup] = useState(false);
 	const [popupShown, setPopupShown] = useState(false);
 	const [subscribed, setSubscribed] = useState(false);
+	const [index, setIndex] = useState(0);
+	const [form, setForm] = useState({
+		firstName: "",
+		lastName: "",
+		email: "",
+		babies: 0
+	});
+
+	const handleSelect = (selectedIndex, e) => {
+		setIndex(selectedIndex);
+	};
 
 	window.addEventListener('scroll', () => {
-		// console.log(e)
-		// console.log(window.scrollY)
-		// console.log(window.document.body.offsetHeight)
 		const docHeight = window.document.body.offsetHeight;
 		const windowHeight = window.innerHeight;
 		const scrollTop = window.scrollY;
 		const scrollBottom = docHeight - windowHeight - scrollTop;
-		console.log(scrollBottom)
 		if (scrollBottom < 40 && !popupShown) {
 			setShowPopup(true);
 		}
@@ -26,14 +36,38 @@ export default function Home() {
 		setPopupShown(true);
 	}
 
-	const _handleSubmit = () => {
-		setSubscribed(true)
+
+	async function onSubmit(e) {
+		e.preventDefault();
+		setSubscribed(true);
+
+		const newSignup = {...form};
+
+		await fetch("http://localhost:3000/signups", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(newSignup),
+		})
+		.catch(error => {
+			window.alert(error);
+			return;
+		});
+
+		setForm({ firstName: "", lastName: "", email: "", babies: 0 });
 	}
-	
+
+	function updateForm(value) {
+		return setForm((prev) => {
+			return { ...prev, ...value };
+		});
+	}
+
 	return (
 		<div>
 			<header>
-				<h1>Storkr</h1>
+				<h1 id='title'>Storkr</h1>
 			</header>
 
 			<div className="banner">
@@ -46,44 +80,62 @@ export default function Home() {
 				
 				<div className='products'>
 					<h2>Products</h2>
+					<ProductCarousel style={{ width: '100%'}}>
+						<div className='drone'>
+							<div className='drone-icon' id='storkr9000'></div>
+							<div className='title-price text-center'>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+							</div>
+						</div>
+						
+						<div className='drone'>
+							<div className='drone-icon' id='storkr6000'></div>
+							<div className='title-price text-center'>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+							</div>
+						</div>
+						
+						<div className='drone'>
+							<div className='drone-icon' id='storkr3000'></div>
+							<div className='title-price text-center'>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+							</div>
+						</div>
+						
+						<div className='drone'>
+							<div className='drone-icon' id='storkrOG'></div>
+							<div className='title-price text-center'>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+							</div>
+						</div>
+					</ProductCarousel>
 				</div>
 
 				<div className='testimonials'>
 					<h2>Testimonials</h2>
 
-					<div id="testimonial-carousel" className="carousel slide" data-bs-ride="carousel">
-						<div className="carousel-inner">
+					<Carousel activeIndex={ index } onSelect={ handleSelect } id="testimonial-carousel" className="carousel slide" data-bs-ride="carousel">
 							
-							<div className="carousel-item active">
-								<div className="testimonial">
-									<div id='testimonial-one' className='icon'></div>
-									<div className='testimonial-text'>
-										<h3>Ben & Eileen Dover</h3>
-										<p>"After buying a Storkr drone, our baby can go anywhere with us! Whether it's a stroll around town or a shopping trip, our little angel is always floating around us."</p>
-									</div>
+						<Carousel.Item>
+							<div className="testimonial">
+								<div id='testimonial-one' className='icon'></div>
+								<div className='testimonial-text'>
+									<h3>Ben & Eileen Dover</h3>
+									<p>"After buying a Storkr drone, our baby can go anywhere with us! Whether it's a stroll around town or a shopping trip, our little angel is always floating around us."</p>
 								</div>
 							</div>
+						</Carousel.Item>
 
-							<div className="carousel-item">
-								<div className="testimonial">
-									<div id='testimonial-two' className='icon'></div>
-									<div className='testimonial-text'>
-										<h3>Jenna Taylor</h3>
-										<p>"Storkr drone is great!! I no longer have to worry about bringing a pram when going out. My Storkr drone is my baby's new father as her real father left us."</p>
-									</div>
+						<Carousel.Item>
+							<div className="testimonial">
+								<div id='testimonial-two' className='icon'></div>
+								<div className='testimonial-text'>
+									<h3>Jenna Taylor</h3>
+									<p>"Storkr drone is great!! I no longer have to worry about bringing a pram when going out. My Storkr drone is my baby's new father as her real father left us."</p>
 								</div>
 							</div>
-
-						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
+						</Carousel.Item>
+					</Carousel>
 				</div>
 
 				<h2>Safety</h2>
@@ -107,7 +159,7 @@ export default function Home() {
 					<span>
 						<p>Subscribe to our newsletter to get all our tips and tricks to entertain and relax your baby using the Storkr drone!</p>
 
-						<form onSubmit={ _handleSubmit }>
+						<form onSubmit={ onSubmit }>
 								<label>
 									First Name
 									<input required type="text" />
@@ -151,22 +203,46 @@ export default function Home() {
 						<span>
 							<p className='popout-content'>Subscribe to our newsletter to get all our tips and tricks to entertain and relax your baby using the Storkr drone!</p>
 
-							<form onSubmit={ _handleSubmit } className='popout'>
+							<form onSubmit={ onSubmit } className='popout'>
 								<label>
 									First Name
-									<input required className='inpopoutput' type="text" />
+									<input 
+										value={ form.firstName }
+										onChange={(e) => updateForm({ firstName: e.target.value })}
+										required 
+										className='inpopoutput' 
+										type="text" 
+									/>
 								</label>
 								<label>
 									Last Name
-									<input required className='inpopoutput' type="text" />
+									<input 
+										value={ form.lastName }
+										onChange={(e) => updateForm({ lastName: e.target.value })}
+										required 
+										className='inpopoutput' 
+										type="text" 
+									/>
 								</label>
 								<label>
 									Email
-									<input required className='inpopoutput' type="email" />
+									<input 
+										value={ form.email }
+										onChange={(e) => updateForm({ email: e.target.value })}
+										required 
+										className='inpopoutput' 
+										type="email" 
+									/>
 								</label>
 								<label>
 									No. of Babies
-									<input required className='inpopoutput' type="number" />
+									<input 
+										value={ form.babies }
+										onChange={(e) => updateForm({ babies: e.target.value })}
+										required 
+										className='inpopoutput' 
+										type="number" 
+									/>
 								</label>
 
 								<Button type='submit' className='subscribe d-flex btn-dark' style={{ opacity: '0.7'}}>Subscribe Now</Button>

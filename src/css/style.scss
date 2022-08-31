@@ -31,7 +31,7 @@ h1, .banner h2, aside h2 {
 	color: white;
 }
 
-h1 {
+#title {
 	font-size: 64px;
 }
 
@@ -236,4 +236,80 @@ form input {
 
 .congrats {
 	padding: 0 2em;
+}
+
+.buttons {
+	width: 100vw !important;
+}
+
+.buttons > button > img {
+	display: none;
+}
+
+#prev, #next {
+	opacity: 0.6;
+	position: absolute;
+	top: 20;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#prev {
+	left: 0;
+	background-image: url('../images/left_arrow.png');
+}
+
+#next {
+	right: 0;
+	background-image: url('../images/right_arrow.png');
+}
+
+.drone-icon {
+	height: 180px !important;
+	width: 180px !important;
+	border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 0px 4px 7px -2px rgba(0, 0, 0, 0.7);
+}
+
+.title-price {
+	font-family: 'Nothing You Could Do', cursive;
+	font-size: 20px;
+	margin-top: 0.3em;
+}
+
+#storkr9000 {
+	background-image: url('https://media.wired.com/photos/59264bb5f3e2356fd8008c6e/master/pass/DroneHP_GettyImages-599365398.jpg');
+}
+
+#storkr6000 {
+	background-image: url('https://media.wired.com/photos/593232a4a312645844993695/master/w_2560%2Cc_limit/faa-drones.jpg');
+}
+
+#storkr3000 {
+	background-image: url('https://static-cse.canva.com/blob/562150/DronePhotography1.36304c1b.jpg');
+}
+
+#storkrOG {
+	background-image: url('https://staticfiles-cdn1.dronedeploy.com/img/home/Section%207%20card%20teaser.png');
+}
+
+.products {
+	padding: 1em 0;
+}
+
+.products div {
+	width: 100%;
+}
+
+.products.buttons {
+	height: 20px;
+}
+
+.drone {
+	margin: 0 20px;
+	height: 240px;
 }
