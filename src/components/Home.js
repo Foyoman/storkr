@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../css/style.scss'
 import { Button } from 'react-bootstrap'
 import ProductCarousel from 'carousel-react-rcdev'
@@ -95,21 +95,21 @@ export default function Home() {
 						<div className='drone'>
 							<div className='drone-icon' id='storkr6000'></div>
 							<div className='title-price text-center'>
-								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$6999.99</span></p>
 							</div>
 						</div>
 						
 						<div className='drone'>
 							<div className='drone-icon' id='storkr3000'></div>
 							<div className='title-price text-center'>
-								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$4999.99</span></p>
 							</div>
 						</div>
 						
 						<div className='drone'>
 							<div className='drone-icon' id='storkrOG'></div>
 							<div className='title-price text-center'>
-								<p>Storkr 9000<span style={{ display: 'block' }}>$9999.99</span></p>
+								<p>Storkr 9000<span style={{ display: 'block' }}>$2999.99</span></p>
 							</div>
 						</div>
 					</ProductCarousel>
