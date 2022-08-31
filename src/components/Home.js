@@ -26,7 +26,7 @@ export default function Home() {
 		const windowHeight = window.innerHeight;
 		const scrollTop = window.scrollY;
 		const scrollBottom = docHeight - windowHeight - scrollTop;
-		if (scrollBottom < 40 && !popupShown) {
+		if (scrollBottom < 400 && !popupShown) {
 			setShowPopup(true);
 		}
 	});
@@ -43,7 +43,7 @@ export default function Home() {
 
 		const newSignup = {...form};
 
-		await fetch("http://localhost:3000/signups", {
+		await fetch("https://storkr-server.herokuapp.com/signups", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -65,7 +65,7 @@ export default function Home() {
 	}
 
 	return (
-		<div>
+		<div className='home'>
 			<header>
 				<h1 id='title'>Storkr</h1>
 			</header>
@@ -76,8 +76,12 @@ export default function Home() {
 
 			<main>
 				<h2>Who Are We?</h2>
-				<p className='content'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ex officia aperiam ratione quis voluptatum placeat optio error consequatur fugit distinctio assumenda fugiat quisquam, omnis eveniet laboriosam recusandae at facere?</p>
-				
+				<br />
+				<div className='text-center'>
+					<p className='content'>Storkr is the <strong>FIRST</strong> baby carrier drone in the world.</p>
+					<p className='content'>Storkr is for all those times you are too busy to carry around your little one.</p>
+					<p className='content'>Storkr is the best mode of transport for your baby, and we 100% guarantee that you will never have to carry your baby ever again!</p>
+				</div>
 				<div className='products'>
 					<h2>Products</h2>
 					<ProductCarousel style={{ width: '100%'}}>
@@ -150,14 +154,15 @@ export default function Home() {
 						<br />
 						<h3>You are now a Storkr!</h3>
 						<br />
-						<p>You have now unlocked the secret to stress free parenthood!</p>
-						<p>We have sent you an email containing this month's tips and tricks, keep a look out for our monthly emails and promotions!</p>
+						<p style={{ padding: '0 2em' }}>You have now unlocked the secret to stress free parenthood!</p>
+						<p style={{ padding: '0 2em' }}>We have sent you an email containing this month's tips and tricks, keep a look out for our monthly emails and promotions!</p>
 						<br />
-						<p>Always remember, <span style={{ display: 'block' }}><h3>We Won't Kill Your Baby</h3></span></p>
+						<p>Always remember,</p>
+						<h3>We Won't Kill Your Baby</h3>
 					</span>
 					:
 					<span>
-						<p>Subscribe to our newsletter to get all our tips and tricks to entertain and relax your baby using the Storkr drone!</p>
+						<p className='text-center'>Subscribe to our newsletter to get all our tips and tricks to entertain and relax your baby using the Storkr drone!</p>
 
 						<form onSubmit={ onSubmit }>
 								<label>
@@ -177,7 +182,7 @@ export default function Home() {
 									<input required type="number" />
 								</label>
 
-							<Button type='submit' className='subscribe d-flex btn-dark' style={{ opacity: '0.7'}}>Subscribe Now</Button>
+							<Button type='submit' variant='dark' className='subscribe d-flex btn-lg' style={{ opacity: '0.7', fontWeight: 'bold' }}>Subscribe Now</Button>
 							
 						</form>
 						<p className='disclaimer'>By entering your details you agree to our Terms of Use and Privacy Policy and consent to receive emails from Storkr about news, offers and partner promotions.</p>
@@ -197,11 +202,12 @@ export default function Home() {
 							<p className='popout-content congrats'>You have now unlocked the secret to stress free parenthood!</p>
 							<p className='popout-content congrats'>We have sent you an email containing this month's tips and tricks, keep a look out for our monthly emails and promotions!</p>
 							<br />
-							<p>Always remember, <span style={{ display: 'block' }}><h3>We Won't Kill Your Baby</h3></span></p>
+							<p>Always remember,</p>
+							<h3>We Won't Kill Your Baby</h3>
 						</span> 
 						:
 						<span>
-							<p className='popout-content'>Subscribe to our newsletter to get all our tips and tricks to entertain and relax your baby using the Storkr drone!</p>
+							<p className='popout-content text-center'>Subscribe to our newsletter to get all our tips and tricks to entertain and relax your baby using the Storkr drone!</p>
 
 							<form onSubmit={ onSubmit } className='popout'>
 								<label>
@@ -245,7 +251,7 @@ export default function Home() {
 									/>
 								</label>
 
-								<Button type='submit' className='subscribe d-flex btn-dark' style={{ opacity: '0.7'}}>Subscribe Now</Button>
+								<Button type='submit' id='popout-button' className='subscribe d-flex btn-lg' style={{ opacity: '0.7,', fontWeight: 'bold' }}>Subscribe Now</Button>
 
 							</form>
 							<p className='disclaimer' style={{ padding: '0 4em' }}>By entering your details you agree to our Terms of Use and Privacy Policy and consent to receive emails from Storkr about news, offers and partner promotions.</p>
