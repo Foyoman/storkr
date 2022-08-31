@@ -167,19 +167,39 @@ export default function Home() {
 						<form onSubmit={ onSubmit }>
 								<label>
 									First Name
-									<input required type="text" />
+									<input 
+										value={ form.firstName }
+										onChange={(e) => updateForm({ firstName: e.target.value })}
+										required 
+										type="text" 
+									/>
 								</label>
 								<label>
 									Last Name
-									<input required type="text" />
+									<input 
+										value={ form.lastName }
+										onChange={(e) => updateForm({ lastName: e.target.value })}
+										required 
+										type="text" 
+									/>
 								</label>
 								<label>
 									Email
-									<input required type="email" />
+									<input 
+										value={ form.email }
+										onChange={(e) => updateForm({ email: e.target.value })}
+										required 
+										type="email" 
+									/>
 								</label>
 								<label>
 									No. of Babies
-									<input required type="number" />
+									<input 
+										value={ form.babies }
+										onChange={(e) => updateForm({ babies: e.target.value })}
+										required 
+										type="number" 
+									/>
 								</label>
 
 							<Button type='submit' variant='dark' className='subscribe d-flex btn-lg' style={{ opacity: '0.7', fontWeight: 'bold' }}>Subscribe Now</Button>
